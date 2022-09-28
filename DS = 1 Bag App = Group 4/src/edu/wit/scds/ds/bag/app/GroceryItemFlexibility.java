@@ -1,9 +1,9 @@
 package edu.wit.scds.ds.bag.app;
 
-public enum GroceryItemFlexibility 
+public enum GroceryItemFlexibility
 	{
-	FLEXIBLE(“Flexible”, 1),
-	RIGID(“Rigid”, 2);
+	FLEXIBLE("Flexible", 1),
+	RIGID("Rigid", 2);
 
 	public final String displayName;
 	public final int flexibilityValue;
@@ -12,7 +12,7 @@ public enum GroceryItemFlexibility
 		{
 		this.displayName = itemFlexibilityDisplayName;
 		this.flexibilityValue = itemFlexibilityValue;
-		
+
 		}
 
 	public static GroceryItemFlexibility interpretDescription(final String flexibilityDescription)
@@ -33,7 +33,7 @@ public enum GroceryItemFlexibility
 return correspondingFlexibility;
 }
 public String to String(){
-return this.displayName; 
+return this.displayName;
 }
 public static void main(final String[] args){
 System.out.printf(“Members of the %s enumeration%n%n”,
