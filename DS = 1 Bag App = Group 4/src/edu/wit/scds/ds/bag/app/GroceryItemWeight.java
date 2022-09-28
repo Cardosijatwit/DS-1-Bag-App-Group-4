@@ -1,29 +1,32 @@
 package edu.wit.scds.ds.bag.app;
 
-public enum GroceryItemWeight{
+public enum GroceryItemWeight 
+	{
+	
+	LIGHT("Light", 1),
+	MEDIUM("Medium", 2),
+	HEAVY("Heavy", 3) ;
 
-	LIGHT(“Light”, 1),
-MEDIUM(“Medium”, 2),
-HEAVY(“Heavy”, 3);
+	public final String displayName ;
+	public final int firmnessValue ;
 
-public final String displayName;
-public final int firmnessValue;
+	private GroceryItemWeight( final String itemWeightDisplayName, final int itemWeightValue ) 
+		{
+		this.displayName = itemWeightDisplayName;
+		this.firmnessValue = itemWeightValue;
+		
+		}
 
-private GroceryItemWeight(final String itemWeightDisplayName, final int itemWeightValue){
-this.displayName = itemWeightDIsplayName;
-this.firmnessValue = itemWeightValue;
-}
-
-public static GroceryItemWeight interpretDescription(final String weightDescription){
+	public static GroceryItemWeight interpretDescription(final String weightDescription){
 GroceryItemWeight correspondingWeight;
 switch(weightDescription.toLowerCase().charAt(0)){
-case ‘l’:
+case 'l':
 correspondingWeight = LIGHT;
 break;
-case ‘m’:
+case 'm':
 correspondingWeight = MEDIUM;
 break;
-case ‘h’:
+case 'h':
 correspondingWeight = HEAVY;
 break;
 default:
@@ -36,22 +39,22 @@ public String toString(){
 return this.displayName; 
 }
 public static void main(final String[] args){
-System.out.printf(“Members of the %s enumeration%n%n”,
+System.out.printf("Members of the %s enumeration%n%n",
 GroceryItemWeight.class.getSimpleName());
-System.out.printf(“%-5s %-15s %-15s %-15s %-15s %-15s%n”,
-“#”,
-“Item Weight”,
-“Name”,
-“Display Name”,
-“Weight Value”,
-“Interpreted Weight”);
+System.out.printf("%-5s %-15s %-15s %-15s %-15s %-15s%n",
+"#",
+"Item Weight",
+"Name",
+"Display Name",
+"Weight Value",
+"Interpreted Weight");
 for (final GroceryItemWeight anItemWeight: GroceryItemWeight.values()){
-System.out.printf(“%-5s %-15s %-15s %-15s %-15s %-15s%n”,
+System.out.printf("%-5s %-15s %-15s %-15s %-15s %-15s%n",
 anItemWeight.ordinal(),
 anItemWeight,
 anItemWeight.name(),
 anItemWeight.displayName,
-anItemWeight.weightValue,
+anItemWeight.firmnessValue,
 interpretDescription(anItemWeight.toString()));
 }
 }
