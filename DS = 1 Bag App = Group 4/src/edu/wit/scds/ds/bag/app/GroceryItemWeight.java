@@ -2,7 +2,7 @@ package edu.wit.scds.ds.bag.app;
 
 public enum GroceryItemWeight{
 
-LIGHT(“Light”, 1),
+	LIGHT(“Light”, 1),
 MEDIUM(“Medium”, 2),
 HEAVY(“Heavy”, 3);
 
