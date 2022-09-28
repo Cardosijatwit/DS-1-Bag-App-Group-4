@@ -1,5 +1,13 @@
+
 package edu.wit.scds.ds.bag.app;
 
+
+/**
+ * 
+ * 
+ * @author Andrew Thynne
+ *
+ */
 public enum GroceryItemWeight 
 	{
 	
@@ -7,14 +15,16 @@ public enum GroceryItemWeight
 	MEDIUM("Medium", 2),
 	HEAVY("Heavy", 3) ;
 
+	
 	public final String displayName ;
 	public final int firmnessValue ;
 
+	
 	private GroceryItemWeight( final String itemWeightDisplayName, final int itemWeightValue ) 
 		{
-		this.displayName = itemWeightDisplayName;
-		this.firmnessValue = itemWeightValue;
-		
+		this.displayName = itemWeightDisplayName ;
+		this.firmnessValue = itemWeightValue ;
+		 
 		}
 
 	public static GroceryItemWeight interpretDescription( final String weightDescription ) 

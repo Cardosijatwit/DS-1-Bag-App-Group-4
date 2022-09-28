@@ -1,10 +1,18 @@
+
 package edu.wit.scds.ds.bag.app;
 
-public enum GroceryItemFirmness{
+/**
+ * 
+ * 
+ * @author Andrew Thynne
+ *
+ */
+public enum GroceryItemFirmness
+	{
 
-SOFT("Soft", 1),
-FIRM("Firm", 2),
-HARD("Hard", 3);
+	SOFT( "Soft", 1 ),
+	FIRM( "Firm", 2 ),
+	HARD( "Hard", 3 ) ;
 
 public final String displayName;
 public final int firmnessValue;
