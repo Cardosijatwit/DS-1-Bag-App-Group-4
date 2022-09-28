@@ -17,6 +17,10 @@ import edu.wit.scds.ds.bag.adt.ResizableArrayBag;
  */
 public class GroceryBagger00<T>
 	{
-	ResizableArrayBag<T> wow = new ResizableArrayBag<T>() ;
+	public static void main( String[] args ) 
+		{
+			
+		
+		}
 	
 	}
