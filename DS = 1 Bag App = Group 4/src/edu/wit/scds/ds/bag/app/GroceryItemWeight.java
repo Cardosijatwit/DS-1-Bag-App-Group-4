@@ -17,24 +17,30 @@ public enum GroceryItemWeight
 		
 		}
 
-	public static GroceryItemWeight interpretDescription(final String weightDescription){
-GroceryItemWeight correspondingWeight;
-switch(weightDescription.toLowerCase().charAt(0)){
-case 'l':
-correspondingWeight = LIGHT;
-break;
-case 'm':
-correspondingWeight = MEDIUM;
-break;
-case 'h':
-correspondingWeight = HEAVY;
-break;
-default:
-correspondingWeight = MEDIUM;
-break;
-}
-return correspondingWeight;
-}
+	public static GroceryItemWeight interpretDescription( final String weightDescription ) 
+		{
+		GroceryItemWeight correspondingWeight ;
+		
+		switch( weightDescription.toLowerCase().charAt( 0 ) )
+			{
+			case 'l':
+				correspondingWeight = LIGHT;
+				break;
+			case 'm':
+				correspondingWeight = MEDIUM;
+				break;
+			case 'h':
+				correspondingWeight = HEAVY;
+				break;
+			default:
+				correspondingWeight = MEDIUM;
+				break;
+				
+			}
+		
+		return correspondingWeight;
+		
+		}
 public String toString(){
 return this.displayName; 
 }
