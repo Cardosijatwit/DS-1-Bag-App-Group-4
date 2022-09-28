@@ -16,7 +16,7 @@ import java.io.IOException;
  *
  */
 
-public class GroceryItems 
+public class GroceryItem 
 {
 
     public static void main(String[] args)
