@@ -15,7 +15,7 @@ import edu.wit.scds.ds.bag.adt.ResizableArrayBag;
  *		the class of items held within each bag
  *
  */
-public class GroceryBagger00<T>
+public class GroceryBagger<T>
 	{
 	public static void main( String[] args ) 
 		{
