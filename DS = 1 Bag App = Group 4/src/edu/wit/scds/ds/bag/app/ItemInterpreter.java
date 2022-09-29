@@ -18,13 +18,14 @@ import java.io.FileNotFoundException;
  *
  */
 
-public class ItemInterpreter<S>
+public class ItemInterpreter<S> 
 	{	
 	
-	public S[] itemAttributeInterpreter( S[] itemAttributes )
+	@SuppressWarnings("unchecked")
+	public static String[] itemAttributeInterpreter( String[] itemAttributes )
 		{
-		ResizableArrayBag tempArray = new ResizableArrayBag( itemAttributes ) ;
-		
+		@SuppressWarnings({ "rawtypes", "unused" })
+		ResizableArrayBag tempBag = new ResizableArrayBag( itemAttributes ) ;
 		
 		
 		return null ;
