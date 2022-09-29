@@ -33,17 +33,17 @@ package edu.wit.scds.ds.bag.app ;
  */
 public enum GroceryItemSize
     {
-
-    // Weight Display Name Numeric Value
+	
     // Weight      Display Name    Numeric Value
+	
     /** Small item */
-    SMALL (        "Small",        1 ),
+    SMALL (          "Small",            1 ),
     /** Medium item */
-    MEDIUM (       "Medium",       2 ),
+    MEDIUM (         "Medium",           2 ),
     /** Large item */
-    LARGE (        "Large",        3 ),
+    LARGE (          "Large",            3 ),
     /** Extra Large item */
-    EXTRA_LARGE (  "Extra Large",  4 );
+    EXTRA_LARGE ( "Extra Large",         4 );
 
     
     // instance variables

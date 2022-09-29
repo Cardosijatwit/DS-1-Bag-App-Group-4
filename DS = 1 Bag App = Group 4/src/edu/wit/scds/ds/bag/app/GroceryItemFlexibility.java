@@ -1,13 +1,23 @@
+
 package edu.wit.scds.ds.bag.app;
 
+
+/**
+ * Enumeration of grocery item flexibility for the GroceryBagger application.
+ * 
+ * @author Andrew Thynne
+ *
+ */
 public enum GroceryItemFlexibility
 	{
 	FLEXIBLE( "Flexible", 1 ),
 	RIGID( "Rigid", 2 ) ;
 
+	
 	public final String displayName ;
 	public final int flexibilityValue ;
 
+	
 	private GroceryItemFlexibility( final String itemFlexibilityDisplayName, final int itemFlexibilityValue )
 		{
 		this.displayName = itemFlexibilityDisplayName ;
@@ -15,6 +25,7 @@ public enum GroceryItemFlexibility
 
 		}
 
+	
 	public static GroceryItemFlexibility interpretDescription( final String flexibilityDescription )
 		{
 		GroceryItemFlexibility correspondingFlexibility;
@@ -41,6 +52,7 @@ public enum GroceryItemFlexibility
 		return this.displayName;
 		
 		}
+	
 	
 	public static void main(final String[] args)
 		{
