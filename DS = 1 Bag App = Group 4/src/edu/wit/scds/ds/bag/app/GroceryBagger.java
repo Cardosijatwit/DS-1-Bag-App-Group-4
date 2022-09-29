@@ -18,25 +18,37 @@ import java.io.FileNotFoundException;
  *		class of items held within each bag
  *
  */
-public class GroceryBagger<T>
+public class GroceryBagger<U>
 	{
 	
-	private ArrayList<T> bags = new ArrayList<T>() ; 
+	/**
+	 *  ArrayList that stores all of the bags for the grocery items
+	 */
+	private ArrayList<U> bags = new ArrayList<U>() ; 
 	
+	/**
+	 *  ArrayList that holds the traits of the items in each corresponding bag
+	 */
+	private ArrayList<U> traits = new ArrayList<U>() ; 
+	
+	
+	/**
+	 *  Main method
+	 */
 	public static void main( String[] args ) 
 		{
-		
 		
         // reads groceries.txt line by line, turning each item and its attributes into individual arrays
 		try 
         	{
-        	Scanner grocerylistreader = new Scanner( new File( "./data/groceries.txt" ) ) ; 
-            while (grocerylistreader.hasNextLine()) 
+        	Scanner groceryListReader = new Scanner( new File( "./data/groceries.txt" ) ) ; 
+            while ( groceryListReader.hasNextLine() ) 
             	{
-                String[] splitline = grocerylistreader.nextLine().split( "\t" ) ;
+                String[] splitLine = groceryListReader.nextLine().split( "\t" ) ;
+                String[] enumeratedItem = ItemInterpreter.itemAttributeInterpreter( splitLine ) ;
                 
-                }
-		
+            	}
+            
         	}
 		
 		catch ( FileNotFoundException a ) 

@@ -18,10 +18,17 @@ import java.io.FileNotFoundException;
  *
  */
 
-public class ItemInterpreter 
+public class ItemInterpreter<S>
 	{	
 	
-	
+	public S[] itemAttributeInterpreter( S[] itemAttributes )
+		{
+		ResizableArrayBag tempArray = new ResizableArrayBag( itemAttributes ) ;
+		
+		
+		
+		return null ;
+		}
 	
 	}
         
