@@ -24,12 +24,12 @@ public class GroceryBagger<U>
 	/**
 	 *  ArrayList that stores all of the bags for the grocery items
 	 */
-	private ArrayList<U> bags = new ArrayList<U>() ; 
+	private ArrayList<Object[]> bags = new ArrayList<Object[]>() ; 
 	
 	/**
 	 *  ArrayList that holds the traits of the items in each corresponding bag
 	 */
-	private ArrayList<U> traits = new ArrayList<U>() ; 
+	private ArrayList<Object[]> traits = new ArrayList<Object[]>() ; 
 	
 	
 	/**
@@ -39,7 +39,7 @@ public class GroceryBagger<U>
 		{
 		
         // reads groceries.txt line by line, turning each item and its attributes into separate arrays.
-		// places item and enumerated traits into separate but corresponding ArrayLists as seen above.
+		// places item and enumerated traits into separate but corresponding ArrayLists, seen above.
 		try 
         	{
         	Scanner groceryListReader = new Scanner( new File( "./data/groceries.txt" ) ) ; 
@@ -49,10 +49,9 @@ public class GroceryBagger<U>
                 String[] groceryListIndividualLine = groceryListReader.nextLine().split( "\t" ) ;
                 String groceryItem = groceryListIndividualLine[ 0 ] ;
                 String[] itemTraits = { groceryListIndividualLine[ 2 ], groceryListIndividualLine[ 3 ], groceryListIndividualLine[ 4 ] } ;
-                GroceryItemFirmness firmness = ItemInterpreter.firmnessInterpreter( itemTraits[ 0 ] ) ;
-                GroceryItemWeight weight = ItemInterpreter.weightInterpreter( itemTraits[ 1 ] ) ;
-                GroceryItemFlexibility flexibility = ItemInterpreter.flexibilityInterpreter( itemTraits[ 2 ] ) ;
-                Object[] enumItemTraits = {firmness, weight, flexibility} ; 
+                Object[] enumItemTraits = ItemInterpreter.traitInterpreter( itemTraits ) ;	// {firmness, weight, flexibility}
+                
+                ResizableArrayBag<Object> enumItemTraits2 = new ResizableArrayBag<Object>() ; 
             	}
             
         	}

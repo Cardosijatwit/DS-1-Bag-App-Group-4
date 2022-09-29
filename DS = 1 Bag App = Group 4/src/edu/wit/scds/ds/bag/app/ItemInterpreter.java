@@ -10,9 +10,9 @@ import java.io.FileNotFoundException;
 
 /**
  * 
- * A class that is passed an array containing an individual grocery item and its respective attributes. 
- * The class then interprets the attributes of said item and places the item into a specific bag pertaining to 
- * the item's specific attributes, making a new bag to place the item into if necessary. 
+ * A class that is individually passed a grocery item's respective traits as strings, and then
+ * then interprets the traits of said item and places the item into a specific bag pertaining to 
+ * the item's specific traits, making a new bag to place the item into if necessary. 
  * 
  * @author Jonny Cardosi
  *
@@ -21,6 +21,27 @@ import java.io.FileNotFoundException;
 public class ItemInterpreter 
 	{	
 
+	
+	/**
+	 * Takes in an item's traits as a String[] and converts them to their appropriate enums
+	 * 
+	 * @param itemTraits
+	 * 
+	 * @return
+	 * 		an array of the enumerated itemTraits
+	 */
+	public static Object[] traitInterpreter( String[] itemTraits ) 
+		{
+		GroceryItemFirmness firmness = firmnessInterpreter( itemTraits[ 0 ] ) ;
+        GroceryItemWeight weight = weightInterpreter( itemTraits[ 1 ] ) ;
+        GroceryItemFlexibility flexibility = flexibilityInterpreter( itemTraits[ 2 ] ) ;
+        Object[] enumeratedItemTraits = {firmness, weight, flexibility} ;
+        
+		return  enumeratedItemTraits ;
+				
+		}
+	
+	
 	/**
 	 * Takes in an item's firmness trait as a string and converts it to the appropriate enum
 	 * 
@@ -29,7 +50,7 @@ public class ItemInterpreter
 	 * @return 
 	 * 		the enum the itemTrait string is referring to
 	 */
-	public static GroceryItemFirmness firmnessInterpreter( String itemTrait )
+	private static GroceryItemFirmness firmnessInterpreter( String itemTrait )
 		{
 		GroceryItemFirmness enumTrait = GroceryItemFirmness.interpretDescription( itemTrait ) ;
 		return enumTrait ;
@@ -45,7 +66,7 @@ public class ItemInterpreter
 	 * @return 
 	 * 		the enum the itemTrait string is referring to
 	 */
-	public static GroceryItemWeight weightInterpreter( String itemTrait )
+	private static GroceryItemWeight weightInterpreter( String itemTrait )
 		{
 		GroceryItemWeight enumTrait = GroceryItemWeight.interpretDescription( itemTrait ) ;
 		return enumTrait ;
@@ -61,7 +82,7 @@ public class ItemInterpreter
 	 * @return 
 	 * 		the enum the itemTrait string is referring to
 	 */
-	public static GroceryItemFlexibility flexibilityInterpreter( String itemTrait )
+	private static GroceryItemFlexibility flexibilityInterpreter( String itemTrait )
 		{
 		GroceryItemFlexibility enumTrait = GroceryItemFlexibility.interpretDescription( itemTrait ) ;
 		return enumTrait ;
