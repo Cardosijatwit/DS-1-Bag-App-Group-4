@@ -24,12 +24,12 @@ public class GroceryBagger<U>
 	/**
 	 *  ArrayList that stores all of the bags for the grocery items
 	 */
-	private ArrayList<Object[]> bags = new ArrayList<Object[]>() ; 
+	private static ArrayList<Object[]> bags = new ArrayList<Object[]>() ; 
 	
 	/**
 	 *  ArrayList that holds the traits of the items in each corresponding bag
 	 */
-	private ArrayList<Object[]> traits = new ArrayList<Object[]>() ; 
+	private static ArrayList<Object[]> traits = new ArrayList<Object[]>() ; 
 	
 	
 	/**
@@ -51,7 +51,32 @@ public class GroceryBagger<U>
                 String[] itemTraits = { groceryListIndividualLine[ 2 ], groceryListIndividualLine[ 3 ], groceryListIndividualLine[ 4 ] } ;
                 Object[] enumItemTraits = ItemInterpreter.traitInterpreter( itemTraits ) ;	// {firmness, weight, flexibility}
                 
-                ResizableArrayBag<Object> enumItemTraits2 = new ResizableArrayBag<Object>() ; 
+                GroceryItemFirmness tempTrait1 = (GroceryItemFirmness)enumItemTraits[0] ;
+                int firmnessValue = tempTrait1.firmnessValue ;
+                GroceryItemWeight tempTrait2 = (GroceryItemWeight)enumItemTraits[1] ;
+                int weightValue = tempTrait2.firmnessValue ;
+                GroceryItemFlexibility tempTrait3 = (GroceryItemFlexibility)enumItemTraits[2] ;
+                int flexibilityValue = tempTrait3.flexibilityValue ;
+                
+                ResizableArrayBag< Object > bagEnumItemTraits = new ResizableArrayBag< Object >( enumItemTraits ) ;
+                bagEnumItemTraits.add( weightValue ) ;
+                ResizableArrayBag< Object > bagGroceryItem = new ResizableArrayBag< Object >() ;
+                bagGroceryItem.add( groceryItem ) ;
+                
+                boolean compatible = false ;
+                int counter = 0 ;
+                while ( compatible == false && counter < traits.size() )
+                	{
+                	for ( int j = 0 ; j < traits.get( counter ).length ; j++ )
+                		{
+                		if ( bagEnumItemTraits.contains(traits.get( counter )[0]) ) 
+                			{
+                			
+                			}
+                		}
+                	}
+               
+                
             	}
             
         	}
