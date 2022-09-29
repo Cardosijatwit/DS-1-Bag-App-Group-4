@@ -18,18 +18,56 @@ import java.io.FileNotFoundException;
  *
  */
 
-public class ItemInterpreter<S> 
+public class ItemInterpreter 
 	{	
-	
-	@SuppressWarnings("unchecked")
-	public static String[] itemAttributeInterpreter( String[] itemAttributes )
+
+	/**
+	 * Takes in an item's firmness trait as a string and converts it to the appropriate enum
+	 * 
+	 * @param itemTrait
+	 * 
+	 * @return 
+	 * 		the enum the itemTrait string is referring to
+	 */
+	public static GroceryItemFirmness firmnessInterpreter( String itemTrait )
 		{
-		@SuppressWarnings({ "rawtypes", "unused" })
-		ResizableArrayBag tempBag = new ResizableArrayBag( itemAttributes ) ;
+		GroceryItemFirmness enumTrait = GroceryItemFirmness.interpretDescription( itemTrait ) ;
+		return enumTrait ;
 		
-		
-		return null ;
 		}
+	
+	
+	/**
+	 * Takes in an item's weight trait as a string and converts it to the appropriate enum
+	 * 
+	 * @param itemTrait
+	 * 
+	 * @return 
+	 * 		the enum the itemTrait string is referring to
+	 */
+	public static GroceryItemWeight weightInterpreter( String itemTrait )
+		{
+		GroceryItemWeight enumTrait = GroceryItemWeight.interpretDescription( itemTrait ) ;
+		return enumTrait ;
+		
+		}
+	
+	
+	/**
+	 * Takes in an item's flexibility trait as a string and converts it to the appropriate enum
+	 * 
+	 * @param itemTrait
+	 * 
+	 * @return 
+	 * 		the enum the itemTrait string is referring to
+	 */
+	public static GroceryItemFlexibility flexibilityInterpreter( String itemTrait )
+		{
+		GroceryItemFlexibility enumTrait = GroceryItemFlexibility.interpretDescription( itemTrait ) ;
+		return enumTrait ;
+		
+		}
+	
 	
 	}
         
