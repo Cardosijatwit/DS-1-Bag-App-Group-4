@@ -1,6 +1,7 @@
 
 package edu.wit.scds.ds.bag.app;
 
+
 /**
  * Enumeration of grocery item firmness for the GroceryBagger application.
  * 

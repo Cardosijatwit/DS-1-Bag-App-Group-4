@@ -10,6 +10,7 @@ package edu.wit.scds.ds.bag.app;
  */
 public enum GroceryItemFlexibility
 	{
+	
 	FLEXIBLE( "Flexible", 1 ),
 	RIGID( "Rigid", 2 ) ;
 

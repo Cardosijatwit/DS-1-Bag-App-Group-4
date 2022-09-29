@@ -20,6 +20,9 @@ import java.io.FileNotFoundException;
  */
 public class GroceryBagger<T>
 	{
+	
+	private ArrayList<T> bags = new ArrayList<T>() ; 
+	
 	public static void main( String[] args ) 
 		{
 		
@@ -31,7 +34,6 @@ public class GroceryBagger<T>
             while (grocerylistreader.hasNextLine()) 
             	{
                 String[] splitline = grocerylistreader.nextLine().split( "\t" ) ;
-                
                 
                 }
 		
@@ -47,8 +49,9 @@ public class GroceryBagger<T>
 			System.out.printf( "The file defined by the path \"./data/groceries.txt\" was not found, is corrupt, "
 							 + "or there was an error in opening the file.%n" ) ;
 			b.printStackTrace() ;
+			
 			}
 		
-	
 		}
+	
 	}
