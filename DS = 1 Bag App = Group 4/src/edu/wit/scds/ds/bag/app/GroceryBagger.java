@@ -57,11 +57,10 @@ public class GroceryBagger<U>
                 ResizableArrayBag< Object > bagEnumItemTraits = new ResizableArrayBag< Object >( enumItemTraits ) ;
                 GroceryItemWeight tempTrait1 = ( GroceryItemWeight )enumItemTraits[ 1 ] ;
                 int newWeightValue = tempTrait1.firmnessValue ;
-                
-                
                 boolean compatible = false ;
                 int counter1 = 0 ;
                 int counter2 = 0 ;
+                
                 while ( compatible == false && counter1 < traits.size() )
                 	{
                 	for ( int j = 0 ; j < 3 - 1 ; j++ )
@@ -100,6 +99,11 @@ public class GroceryBagger<U>
         			}
                
             	}	// end while#2
+            
+            
+            System.out.printf("first item from bag 4: %s%n", bags.get(3)[0]) ;
+            System.out.printf("second item from bag 4: %s", bags.get(3)[1]) ;
+            
             
             
             groceryListReader.close() ;
