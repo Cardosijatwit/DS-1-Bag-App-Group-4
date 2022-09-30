@@ -9,8 +9,9 @@ import java.io.File ;
 import java.io.FileNotFoundException;
 
 /**
- * A class that reads a text list of grocery items and their respective attributes, then utilizes the functions 
- * provided in the GroceryItem class to place each item into a specific bag based upon each item's attributes.
+ * A class that reads a text list of grocery items and their respective attributes, then utilizes 
+ * the functions provided in the ItemInterpreter and ResizableArrayBag class to place each item into 
+ * a specific bag based upon each item's attributes.
  * 
  * @author Jonny Cardosi
  *
@@ -32,8 +33,9 @@ public class GroceryBagger<U>
 	private static ArrayList<Object[]> traits = new ArrayList<Object[]>() ; 
 	
 	
+	
 	/**
-	 *  Main method
+	 *  Main method that runs application and prints results to console 
 	 */
 	public static void main( String[] args ) 
 		{
@@ -47,39 +49,62 @@ public class GroceryBagger<U>
             while ( groceryListReader.hasNextLine() ) 
             	{
                 String[] groceryListIndividualLine = groceryListReader.nextLine().split( "\t" ) ;
-                String groceryItem = groceryListIndividualLine[ 0 ] ;
+                String newGroceryItem = groceryListIndividualLine[ 0 ] ;
                 String[] itemTraits = { groceryListIndividualLine[ 2 ], groceryListIndividualLine[ 3 ], groceryListIndividualLine[ 4 ] } ;
                 Object[] enumItemTraits = ItemInterpreter.traitInterpreter( itemTraits ) ;	// {firmness, weight, flexibility}
                 
-                GroceryItemFirmness tempTrait1 = (GroceryItemFirmness)enumItemTraits[0] ;
-                int firmnessValue = tempTrait1.firmnessValue ;
-                GroceryItemWeight tempTrait2 = (GroceryItemWeight)enumItemTraits[1] ;
-                int weightValue = tempTrait2.firmnessValue ;
-                GroceryItemFlexibility tempTrait3 = (GroceryItemFlexibility)enumItemTraits[2] ;
-                int flexibilityValue = tempTrait3.flexibilityValue ;
                 
                 ResizableArrayBag< Object > bagEnumItemTraits = new ResizableArrayBag< Object >( enumItemTraits ) ;
-                bagEnumItemTraits.add( weightValue ) ;
-                ResizableArrayBag< Object > bagGroceryItem = new ResizableArrayBag< Object >() ;
-                bagGroceryItem.add( groceryItem ) ;
+                GroceryItemWeight tempTrait1 = ( GroceryItemWeight )enumItemTraits[ 1 ] ;
+                int newWeightValue = tempTrait1.firmnessValue ;
+                
                 
                 boolean compatible = false ;
-                int counter = 0 ;
-                while ( compatible == false && counter < traits.size() )
+                int counter1 = 0 ;
+                int counter2 = 0 ;
+                while ( compatible == false && counter1 < traits.size() )
                 	{
-                	for ( int j = 0 ; j < traits.get( counter ).length ; j++ )
+                	for ( int j = 0 ; j < 3 - 1 ; j++ )
                 		{
-                		if ( bagEnumItemTraits.contains(traits.get( counter )[0]) ) 
+                		if ( bagEnumItemTraits.contains( traits.get( counter1 )[ j ] ) ) 
                 			{
-                			
+                			counter2 ++ ;
                 			}
                 		}
-                	}
-               
+
+                	int bagTotalWeightValue = (int) traits.get( counter1 )[ 3 ] ;
+                	if ( bagTotalWeightValue + newWeightValue <= 10 && counter2 == 3 ) 
+                		{
+                		ResizableArrayBag< Object > tempBagGroceryItems = new ResizableArrayBag< Object >( bags.get( counter1 ) ) ;
+                		tempBagGroceryItems.add( newGroceryItem ) ;
+                		bags.add( counter1, tempBagGroceryItems.toArray() ) ;
+                		bags.remove( counter1 + 1 ) ;
+                		traits.get( counter1 )[3] = (int) traits.get( counter1 )[3] + newWeightValue ;
+                 		compatible = true ;
+                 		
+                		}
+                	
+                	counter1++ ;
+                	
+                	}	// end while#1
                 
-            	}
+                if ( !compatible ) 
+        			{
+                	ResizableArrayBag< Object > tempBagGroceryItems = new ResizableArrayBag< Object >() ;
+                	tempBagGroceryItems.add( newGroceryItem ) ;
+        			bags.add( tempBagGroceryItems.toArray() ) ;
+        			ResizableArrayBag< Object > tempBagItemTraits = new ResizableArrayBag< Object >( enumItemTraits ) ;
+        			tempBagItemTraits.add( newWeightValue ) ;
+        			traits.add( tempBagItemTraits.toArray() ) ;
+        			 
+        			}
+               
+            	}	// end while#2
             
-        	}
+            
+            groceryListReader.close() ;
+            
+        	}	// end try{}
 		
 		catch ( FileNotFoundException a ) 
 			{
@@ -92,8 +117,8 @@ public class GroceryBagger<U>
 							 + "or there was an error in opening the file.%n" ) ;
 			b.printStackTrace() ;
 			
-			}
+			}	// end catch{}
 		
-		}
+		}	// end main()
 	
-	}
+	}	// end class GroceryBagger
