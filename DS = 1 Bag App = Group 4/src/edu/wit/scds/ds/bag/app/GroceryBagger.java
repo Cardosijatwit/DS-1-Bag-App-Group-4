@@ -54,7 +54,6 @@ public class GroceryBagger<U>
                 Object[] enumItemTraits = ItemInterpreter.traitInterpreter( itemTraits ) ;	// {firmness, weight, flexibility}
                 
                 
-                ResizableArrayBag< Object > bagEnumItemTraits = new ResizableArrayBag< Object >( enumItemTraits ) ;
                 GroceryItemWeight tempTrait1 = ( GroceryItemWeight )enumItemTraits[ 1 ] ;
                 int newWeightValue = tempTrait1.firmnessValue ;
                 boolean compatible = false ;
@@ -63,15 +62,44 @@ public class GroceryBagger<U>
                 
                 while ( compatible == false && counter1 < traits.size() )
                 	{
-                	for ( int j = 0 ; j < 3 - 1 ; j++ )
+                	
+                	for ( int j = 0 ; j < 3 ; j++ )
                 		{
-                		if ( bagEnumItemTraits.contains( traits.get( counter1 )[ j ] ) ) 
+                		
+                		if ( j == 0 ) 
                 			{
-                			counter2 ++ ;
+                			GroceryItemFirmness tempFirmnessTrait1 = ( GroceryItemFirmness ) enumItemTraits[ 0 ] ;
+                			GroceryItemFirmness tempFirmnessTrait2 = ( GroceryItemFirmness ) traits.get( counter1 )[ j ] ;
+                			if ( tempFirmnessTrait1.firmnessValue == tempFirmnessTrait2.firmnessValue ) 
+                				{
+                				counter2 ++ ;
+                				}
+                			}	
+                			
+                		else if ( j == 1 ) 
+                			{
+                			GroceryItemWeight tempWeightTrait1 = ( GroceryItemWeight ) enumItemTraits[ 1 ] ;
+                			GroceryItemWeight tempWeightTrait2 = ( GroceryItemWeight ) traits.get( counter1 )[ j ] ;
+                			if ( tempWeightTrait1.firmnessValue == tempWeightTrait2.firmnessValue ) 
+                				{
+                				counter2 ++ ;
+                				}
                 			}
-                		}
+                			
+                		else if ( j == 2 ) 
+            				{
+                			GroceryItemFlexibility tempFlexibilityTrait1 = ( GroceryItemFlexibility ) enumItemTraits[ 2 ] ;
+            				GroceryItemFlexibility tempFlexibilityTrait2 = ( GroceryItemFlexibility ) traits.get( counter1 )[ j ] ;
+            				if ( tempFlexibilityTrait1.flexibilityValue == tempFlexibilityTrait2.flexibilityValue ) 
+            					{
+            					counter2 ++ ;
+            					}
+            				}
+                		
+                		}	// end for()
 
                 	int bagTotalWeightValue = (int) traits.get( counter1 )[ 3 ] ;
+                	
                 	if ( bagTotalWeightValue + newWeightValue <= 10 && counter2 == 3 ) 
                 		{
                 		ResizableArrayBag< Object > tempBagGroceryItems = new ResizableArrayBag< Object >( bags.get( counter1 ) ) ;
@@ -102,7 +130,7 @@ public class GroceryBagger<U>
             
             
             System.out.printf("first item from bag 4: %s%n", bags.get(3)[0]) ;
-            System.out.printf("second item from bag 4: %s", bags.get(3)[1]) ;
+            System.out.printf("first item from bag 5: %s", bags.get(4)[0]) ;
             
             
             
