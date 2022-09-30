@@ -1,3 +1,4 @@
+
 package edu.wit.scds.ds.bag.app;
 
 import edu.wit.scds.ds.bag.adt.ResizableArrayBag ;
@@ -6,7 +7,6 @@ import java.util.ArrayList ;
 import java.util.Scanner ;
 import java.io.File ;
 import java.io.FileNotFoundException;
-
 
 /**
  * 
