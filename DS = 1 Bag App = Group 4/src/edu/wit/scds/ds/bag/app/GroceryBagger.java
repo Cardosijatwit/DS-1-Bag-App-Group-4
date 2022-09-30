@@ -136,16 +136,29 @@ public class GroceryBagger
             	}	// end outer while{}
             
             
-            System.out.printf("first item from bag 1: %s%n", bags.get(0)[0]) ;
-            System.out.printf("first item from bag 2: %s%n", bags.get(1)[0]) ;
-            System.out.printf("first item from bag 3: %s%n", bags.get(2)[0]) ;
-            System.out.printf("first item from bag 4: %s%n", bags.get(3)[0]) ;
-            System.out.printf("first item from bag 5: %s%n", bags.get(4)[0]) ;
-            System.out.printf("first item from bag 6: %s%n", bags.get(5)[0]) ;
-            System.out.printf("first item from bag 7: %s%n", bags.get(6)[0]) ;
-            System.out.printf("first item from bag 8: %s%n", bags.get(7)[0]) ;
-            System.out.printf("first item from bag 9: %s%n", bags.get(8)[0]) ;
-            
+            System.out.printf("there are %d bags in total%n",  bags.size() ) ;
+            System.out.printf("first item from bag #1: %s%n",  bags.get(0)[0]) ;
+            System.out.printf("first item from bag #2: %s%n",  bags.get(1)[0]) ;
+            System.out.printf("first item from bag #3: %s%n",  bags.get(2)[0]) ;
+            System.out.printf("first item from bag #4: %s%n",  bags.get(3)[0]) ;
+            System.out.printf("first item from bag #5: %s%n",  bags.get(4)[0]) ;
+            System.out.printf("first item from bag #6: %s%n",  bags.get(5)[0]) ;
+            System.out.printf("first item from bag #7: %s%n",  bags.get(6)[0]) ;
+            System.out.printf("first item from bag #8: %s%n",  bags.get(7)[0]) ;
+            System.out.printf("first item from bag #9: %s%n",  bags.get(8)[0]) ;
+            System.out.printf("first item from bag #10: %s%n", bags.get(9)[0]) ;
+            System.out.printf("first item from bag #11: %s%n", bags.get(10)[0]) ;
+            System.out.printf("the total weight of bag #1 is %d pounds%n",  traits.get(0)[3]) ;
+            System.out.printf("the total weight of bag #2 is %d pounds%n",  traits.get(1)[3]) ;
+            System.out.printf("the total weight of bag #3 is %d pounds%n",  traits.get(2)[3]) ;
+            System.out.printf("the total weight of bag #4 is %d pounds%n",  traits.get(3)[3]) ;
+            System.out.printf("the total weight of bag #5 is %d pounds%n",  traits.get(4)[3]) ;
+            System.out.printf("the total weight of bag #6 is %d pounds%n",  traits.get(5)[3]) ;
+            System.out.printf("the total weight of bag #7 is %d pounds%n",  traits.get(6)[3]) ;
+            System.out.printf("the total weight of bag #8 is %d pounds%n",  traits.get(7)[3]) ;
+            System.out.printf("the total weight of bag #9 is %d pounds%n",  traits.get(8)[3]) ;
+            System.out.printf("the total weight of bag #10 is %d pounds%n", traits.get(9)[3]) ;
+            System.out.printf("the total weight of bag #11 is %d pounds%n", traits.get(10)[3]) ;
             
             
             groceryListReader.close() ;
