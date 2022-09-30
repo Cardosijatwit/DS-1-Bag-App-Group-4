@@ -17,13 +17,13 @@ public enum GroceryItemWeight
 
 	
 	public final String displayName ;
-	public final int firmnessValue ;
+	public final int weightValue ;
 
 	
 	private GroceryItemWeight( final String itemWeightDisplayName, final int itemWeightValue ) 
 		{
 		this.displayName = itemWeightDisplayName ;
-		this.firmnessValue = itemWeightValue ;
+		this.weightValue = itemWeightValue ;
 		 
 		}
 
@@ -81,7 +81,7 @@ public enum GroceryItemWeight
 							    anItemWeight,
 							    anItemWeight.name(),
 							    anItemWeight.displayName,
-							    anItemWeight.firmnessValue,
+							    anItemWeight.weightValue,
 							    interpretDescription( anItemWeight.toString() ) ) ;
 			
 			}

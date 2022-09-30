@@ -19,7 +19,7 @@ import java.io.FileNotFoundException;
  *		class of items held within each bag
  *
  */
-public class GroceryBagger<U>
+public class GroceryBagger
 	{
 	
 	/**
@@ -53,16 +53,15 @@ public class GroceryBagger<U>
                 String[] itemTraits = { groceryListIndividualLine[ 2 ], groceryListIndividualLine[ 3 ], groceryListIndividualLine[ 4 ] } ;
                 Object[] enumItemTraits = ItemInterpreter.traitInterpreter( itemTraits ) ;	// {firmness, weight, flexibility}
                 
-                
+                // variables used in upcoming while loop
                 GroceryItemWeight tempTrait1 = ( GroceryItemWeight )enumItemTraits[ 1 ] ;
-                int newWeightValue = tempTrait1.firmnessValue ;
+                int newWeightValue = tempTrait1.weightValue ;
                 boolean compatible = false ;
                 int counter1 = 0 ;
                 int counter2 = 0 ;
                 
                 while ( compatible == false && counter1 < traits.size() )
                 	{
-                	
                 	for ( int j = 0 ; j < 3 ; j++ )
                 		{
                 		
@@ -74,17 +73,19 @@ public class GroceryBagger<U>
                 				{
                 				counter2 ++ ;
                 				}
+                			
                 			}	
                 			
                 		else if ( j == 1 ) 
                 			{
                 			GroceryItemWeight tempWeightTrait1 = ( GroceryItemWeight ) enumItemTraits[ 1 ] ;
                 			GroceryItemWeight tempWeightTrait2 = ( GroceryItemWeight ) traits.get( counter1 )[ j ] ;
-                			if ( tempWeightTrait1.firmnessValue == tempWeightTrait2.firmnessValue ) 
+                			if ( tempWeightTrait1.weightValue == tempWeightTrait2.weightValue ) 
                 				{
                 				counter2 ++ ;
                 				}
-                			}
+                			
+                			}	
                 			
                 		else if ( j == 2 ) 
             				{
@@ -94,11 +95,12 @@ public class GroceryBagger<U>
             					{
             					counter2 ++ ;
             					}
-            				}
+            				
+            				}	
                 		
                 		}	// end for()
-
-                	int bagTotalWeightValue = (int) traits.get( counter1 )[ 3 ] ;
+ 
+                	int bagTotalWeightValue = ( int )( traits.get( counter1 )[ 3 ] );
                 	
                 	if ( bagTotalWeightValue + newWeightValue <= 10 && counter2 == 3 ) 
                 		{
@@ -106,31 +108,43 @@ public class GroceryBagger<U>
                 		tempBagGroceryItems.add( newGroceryItem ) ;
                 		bags.add( counter1, tempBagGroceryItems.toArray() ) ;
                 		bags.remove( counter1 + 1 ) ;
-                		traits.get( counter1 )[3] = (int) traits.get( counter1 )[3] + newWeightValue ;
+                		
+                		traits.get( counter1 )[ 3 ] = ( int )( traits.get( counter1 )[ 3 ] ) + newWeightValue ;
                  		compatible = true ;
                  		
                 		}
                 	
                 	counter1++ ;
+                	counter2 = 0 ;
                 	
-                	}	// end while#1
+                	}	// end inner while{}
+                
                 
                 if ( !compatible ) 
-        			{
+                	{
                 	ResizableArrayBag< Object > tempBagGroceryItems = new ResizableArrayBag< Object >() ;
                 	tempBagGroceryItems.add( newGroceryItem ) ;
-        			bags.add( tempBagGroceryItems.toArray() ) ;
-        			ResizableArrayBag< Object > tempBagItemTraits = new ResizableArrayBag< Object >( enumItemTraits ) ;
-        			tempBagItemTraits.add( newWeightValue ) ;
-        			traits.add( tempBagItemTraits.toArray() ) ;
-        			 
-        			}
+                	bags.add( tempBagGroceryItems.toArray() ) ;
+        		
+                	ResizableArrayBag< Object > tempBagItemTraits = new ResizableArrayBag< Object >( enumItemTraits ) ;
+                	tempBagItemTraits.add( newWeightValue ) ;
+                	traits.add( tempBagItemTraits.toArray() ) ;
+			 
+                	}
                
-            	}	// end while#2
+                
+            	}	// end outer while{}
             
             
+            System.out.printf("first item from bag 1: %s%n", bags.get(0)[0]) ;
+            System.out.printf("first item from bag 2: %s%n", bags.get(1)[0]) ;
+            System.out.printf("first item from bag 3: %s%n", bags.get(2)[0]) ;
             System.out.printf("first item from bag 4: %s%n", bags.get(3)[0]) ;
-            System.out.printf("first item from bag 5: %s", bags.get(4)[0]) ;
+            System.out.printf("first item from bag 5: %s%n", bags.get(4)[0]) ;
+            System.out.printf("first item from bag 6: %s%n", bags.get(5)[0]) ;
+            System.out.printf("first item from bag 7: %s%n", bags.get(6)[0]) ;
+            System.out.printf("first item from bag 8: %s%n", bags.get(7)[0]) ;
+            System.out.printf("first item from bag 9: %s%n", bags.get(8)[0]) ;
             
             
             
