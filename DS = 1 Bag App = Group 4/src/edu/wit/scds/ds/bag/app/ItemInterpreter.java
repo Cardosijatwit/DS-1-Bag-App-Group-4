@@ -6,7 +6,7 @@ package edu.wit.scds.ds.bag.app;
  * A class that is passed an individual grocery item's traits as strings and converts said traits 
  * into their corresponding enum equivalents.
  * 
- * @author Jonny Cardosi
+ * @author Jonny Cardosi & Darrian Yang 
  *
  */
 
