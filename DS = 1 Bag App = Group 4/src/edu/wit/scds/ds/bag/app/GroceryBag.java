@@ -20,8 +20,7 @@ public class GroceryBag
 	public final GroceryItemWeight bagContentWeight ;
 	public final GroceryItemFlexibility bagContentFlexibility ;
 	
-	
-	public GroceryBag ( GroceryItem item ) 
+	public GroceryBag( GroceryItem item ) 
 		{
 		this.bag.add( item ) ;
 		this.totalBagWeight = item.itemWeight.weightValue ;

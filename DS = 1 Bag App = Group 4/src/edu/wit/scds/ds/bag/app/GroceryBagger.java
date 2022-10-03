@@ -18,16 +18,13 @@ public class GroceryBagger
 	{
 	
 	/**
-	 *  ArrayList that stores all of the bags for the grocery items
-	 */
-	private static ArrayList< GroceryBag > bags = new ArrayList<>() ; 
-	
-	
-	/**
 	 *  Main method that runs application and prints results to console 
 	 */
 	public static void main( String[] args ) 
 		{
+		
+		// ArrayList to hold all created bags
+		ArrayList< GroceryBag > bags = new ArrayList<>() ;
 		
 		try 
         	{
@@ -35,9 +32,7 @@ public class GroceryBagger
         	
             while ( groceryListReader.hasNextLine() ) 
             	{
-                String[] groceryListSplitLine = groceryListReader.nextLine().split( "\t" ) ;
-                String[] splitLineRelevantElements = { groceryListSplitLine[ 0 ], groceryListSplitLine[ 2 ], groceryListSplitLine[ 3 ], groceryListSplitLine[ 4 ] } ;
-                GroceryItem currentGroceryItem = new GroceryItem( splitLineRelevantElements ) ;
+                GroceryItem currentGroceryItem = new GroceryItem( groceryListReader.nextLine() ) ;
                 
                 boolean compatible = false ;
                 int counter = 0 ;

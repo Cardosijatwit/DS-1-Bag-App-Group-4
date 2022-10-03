@@ -17,12 +17,14 @@ public class GroceryItem
 	public final GroceryItemFlexibility itemFlexibility ;
 	
 	
-	public GroceryItem ( String[] itemAndTraits )
+	public GroceryItem( String groceryListIndividualLine )
 		{
-		this.itemName = itemAndTraits[0] ;
-		this.itemFirmness = ItemInterpreter.firmnessInterpreter(itemAndTraits[1]) ;
-		this.itemWeight = ItemInterpreter.weightInterpreter(itemAndTraits[2]) ;
-		this.itemFlexibility = ItemInterpreter.flexibilityInterpreter(itemAndTraits[3]) ;
+		String[] groceryListSplitLine = groceryListIndividualLine.split( "\t" ) ;
+		String[] splitLineRelevantElements = { groceryListSplitLine[ 0 ], groceryListSplitLine[ 2 ], groceryListSplitLine[ 3 ], groceryListSplitLine[ 4 ] } ;
+		this.itemName = splitLineRelevantElements[0] ;
+		this.itemFirmness = ItemInterpreter.firmnessInterpreter(splitLineRelevantElements[1]) ;
+		this.itemWeight = ItemInterpreter.weightInterpreter(splitLineRelevantElements[2]) ;
+		this.itemFlexibility = ItemInterpreter.flexibilityInterpreter(splitLineRelevantElements[3]) ;
 		
 		}	// end 1-arg (current item) constructor
 	
