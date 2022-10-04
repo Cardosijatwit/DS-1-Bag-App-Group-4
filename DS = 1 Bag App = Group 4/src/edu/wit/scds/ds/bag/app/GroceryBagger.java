@@ -18,7 +18,7 @@ public class GroceryBagger
 	{
 	
 	/**
-	 *  Main method that runs application and prints results to console 
+	 *  Main method that runs methods and prints results to console 
 	 */
 	public static void main( String[] args ) 
 		{
@@ -30,7 +30,7 @@ public class GroceryBagger
 		
 		
 		/*
-		 * Main bag-creation mechanism
+		 * Main bag-creation and item-to-bag compatibility checking done within this try & catch block
 		 */
 		try 
         	{
@@ -38,11 +38,13 @@ public class GroceryBagger
         	
             while ( groceryListReader.hasNextLine() ) 
             	{
+            	// interprets line from .txt file and converts it into a single "grocery item"
                 GroceryItem currentGroceryItem = new GroceryItem( groceryListReader.nextLine() ) ;
                 
                 boolean compatible = false ;
                 int counter = 0 ;
-                while ( !compatible && counter < bags.size() )
+                // checks existing bags for compatibility with current grocery item
+                while ( !compatible && counter < bags.size() )	
                 	{
                 	if ( ( bags.get( counter ).checkNumberOfItems() ) &&
                 		 ( bags.get( counter ).checkTotalBagWeight( currentGroceryItem.itemWeight.weightValue ) ) &&
@@ -58,6 +60,8 @@ public class GroceryBagger
                 	
                 	}	// end inner while{}
                 
+                
+                // creates new bag if no compatible bags for current grocery item
                 if ( !compatible ) 
                 	{
                 	GroceryBag newBag = new GroceryBag( currentGroceryItem ) ;
@@ -72,26 +76,26 @@ public class GroceryBagger
              */
             System.out.printf( "There are %d bags in total%n%n", bags.size() ) ;
             
-            for ( int i = 0 ; i < bags.size(); i++ ) 
+            for ( int i = 0 ; i < bags.size() ; i++ ) 
             	{
             	System.out.printf( "Bag #%d%n", i + 1 ) ;
             	System.out.printf( "Traits: %s, %s, %s%n", bags.get( i ).bagContentWeight.displayName, bags.get( i ).bagContentFirmness.displayName, bags.get( i ).bagContentFlexibility.displayName ) ;
             	System.out.printf( "Contents: " ) ;
             	 
-            	for ( int j = 0 ; j < bags.get(i).returnBag().length ; j++ ) 
+            	for ( int j = 0 ; j < bags.get( i ).returnBag().length ; j++ ) 
             	 	{
-            		if ( j != bags.get(i).returnBag().length - 1 ) 
+            		if ( j != bags.get( i ).returnBag().length - 1 ) 
             			{
-            			System.out.printf( "%s, ", ((GroceryItem)(bags.get(i).returnBag())[ j ]).itemName ) ;
+            			System.out.printf( "%s, ", ( ( GroceryItem )( bags.get( i ).returnBag() )[ j ] ).itemName ) ;
             			}
             		else 
             			{
-            			System.out.printf( "%s%n", ((GroceryItem)(bags.get(i).returnBag())[ j ]).itemName  ) ;
+            			System.out.printf( "%s%n", ( ( GroceryItem )( bags.get( i ).returnBag() )[ j ] ).itemName ) ;
             			}
             		
             	 	}	// end inner for()
             	 
-            	System.out.printf("Total Weight: %d pounds%n%n", bags.get( i ).returnTotalBagWeight() ) ;
+            	System.out.printf( "Total Weight: %d pounds%n%n", bags.get( i ).returnTotalBagWeight() ) ;
             	 
             	}	// end outer for()
            

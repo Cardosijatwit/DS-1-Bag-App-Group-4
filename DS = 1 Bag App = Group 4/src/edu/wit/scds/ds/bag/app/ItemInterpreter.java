@@ -6,7 +6,7 @@ package edu.wit.scds.ds.bag.app;
  * A class that is passed an individual grocery item's traits as strings and converts said traits 
  * into their corresponding enum equivalents.
  * 
- * @author Jonny Cardosi & Darrian Yang 
+ * @author Darrian Yang 
  *
  */
 
@@ -26,7 +26,7 @@ public class ItemInterpreter
 		GroceryItemWeight enumTrait = GroceryItemWeight.interpretDescription( itemTrait ) ;
 		return enumTrait ;
 		
-		}
+		}	// end weightInterpreter()
 	
 	
 	/**
@@ -42,7 +42,9 @@ public class ItemInterpreter
 		GroceryItemFirmness enumTrait = GroceryItemFirmness.interpretDescription( itemTrait ) ;
 		return enumTrait ;
 		
-		}
+		}	// end firmnessInterpreter()
+	
+	
 	/**
 	 * Takes in an item's flexibility trait as a string and converts it to the appropriate enum
 	 * 
@@ -56,9 +58,10 @@ public class ItemInterpreter
 		GroceryItemFlexibility enumTrait = GroceryItemFlexibility.interpretDescription( itemTrait ) ;
 		return enumTrait ;
 		
-		}
+		}	// end flexibilityInterpreter()
 	
-	}
+	
+	}	// end class ItemInterpreter
         
         
 
