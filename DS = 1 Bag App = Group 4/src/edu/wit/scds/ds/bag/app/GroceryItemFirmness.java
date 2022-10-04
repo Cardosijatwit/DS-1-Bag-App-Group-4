@@ -50,11 +50,11 @@ public enum GroceryItemFirmness
         GroceryItemFirmness correspondingFirmness ;
         switch( firmnessDescription.toLowerCase().charAt( 0 ) ) 
             {
-            case 'l' :
+            case 's' :
                 correspondingFirmness = SOFT ;
                 break ;
                 
-            case 'm' :
+            case 'f' :
                 correspondingFirmness = FIRM ;
                 break ;
                 

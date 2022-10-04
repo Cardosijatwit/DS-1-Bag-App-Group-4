@@ -14,22 +14,6 @@ public class ItemInterpreter
 	{	
 	
 	/**
-	 * Takes in an item's firmness trait as a string and converts it to the appropriate enum
-	 * 
-	 * @param itemTrait
-	 * 
-	 * @return 
-	 * 		the enum the itemTrait string is referring to
-	 */
-	public static GroceryItemFirmness firmnessInterpreter( String itemTrait )
-		{
-		GroceryItemFirmness enumTrait = GroceryItemFirmness.interpretDescription( itemTrait ) ;
-		return enumTrait ;
-		
-		}
-	
-	
-	/**
 	 * Takes in an item's weight trait as a string and converts it to the appropriate enum
 	 * 
 	 * @param itemTrait
@@ -45,6 +29,20 @@ public class ItemInterpreter
 		}
 	
 	
+	/**
+	 * Takes in an item's firmness trait as a string and converts it to the appropriate enum
+	 * 
+	 * @param itemTrait
+	 * 
+	 * @return 
+	 * 		the enum the itemTrait string is referring to
+	 */
+	public static GroceryItemFirmness firmnessInterpreter( String itemTrait )
+		{
+		GroceryItemFirmness enumTrait = GroceryItemFirmness.interpretDescription( itemTrait ) ;
+		return enumTrait ;
+		
+		}
 	/**
 	 * Takes in an item's flexibility trait as a string and converts it to the appropriate enum
 	 * 

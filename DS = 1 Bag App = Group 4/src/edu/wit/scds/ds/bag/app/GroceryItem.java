@@ -12,8 +12,8 @@ public class GroceryItem
 	{
 	
 	public final String itemName ;
-	public final GroceryItemFirmness itemFirmness ; 
 	public final GroceryItemWeight itemWeight ;
+	public final GroceryItemFirmness itemFirmness ; 
 	public final GroceryItemFlexibility itemFlexibility ;
 	
 	
@@ -22,11 +22,11 @@ public class GroceryItem
 		String[] groceryListSplitLine = groceryListIndividualLine.split( "\t" ) ;
 		String[] splitLineRelevantElements = { groceryListSplitLine[ 0 ], groceryListSplitLine[ 2 ], groceryListSplitLine[ 3 ], groceryListSplitLine[ 4 ] } ;
 		this.itemName = splitLineRelevantElements[0] ;
-		this.itemFirmness = ItemInterpreter.firmnessInterpreter(splitLineRelevantElements[1]) ;
-		this.itemWeight = ItemInterpreter.weightInterpreter(splitLineRelevantElements[2]) ;
+		this.itemWeight = ItemInterpreter.weightInterpreter(splitLineRelevantElements[1]) ;
+		this.itemFirmness = ItemInterpreter.firmnessInterpreter(splitLineRelevantElements[2]) ;
 		this.itemFlexibility = ItemInterpreter.flexibilityInterpreter(splitLineRelevantElements[3]) ;
 		
-		}	// end 1-arg (current item) constructor
+		}	// end 1-arg (current line) constructor
 	
 	
 	}	// end class GroceryItem

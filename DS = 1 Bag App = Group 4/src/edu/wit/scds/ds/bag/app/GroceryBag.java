@@ -14,23 +14,45 @@ import edu.wit.scds.ds.bag.BagInterface ;
 public class GroceryBag
 	{
 	
+	private static final int ITEMLIMIT = 4 ;
+	private static final int WEIGHTLIMIT = 10 ;
+	
 	private BagInterface< GroceryItem > bag = new ResizableArrayBag<>() ;
-	private int totalBagWeight ;
-	public final GroceryItemFirmness bagContentFirmness ; 
+	private int totalBagWeight = 0; 
+	private int numberOfItems = 0;
 	public final GroceryItemWeight bagContentWeight ;
+	public final GroceryItemFirmness bagContentFirmness ;
 	public final GroceryItemFlexibility bagContentFlexibility ;
+	
 	
 	public GroceryBag( GroceryItem item ) 
 		{
 		this.bag.add( item ) ;
-		this.totalBagWeight = item.itemWeight.weightValue ;
-		this.bagContentFirmness = item.itemFirmness ;
+		this.numberOfItems += 1 ;
+		this.totalBagWeight += item.itemWeight.weightValue ;
 		this.bagContentWeight = item.itemWeight ;
+		this.bagContentFirmness = item.itemFirmness ;
 		this.bagContentFlexibility = item.itemFlexibility ;
 		
 		}	// end 1-arg (new bag) constructor()
 	
 	
+	public void addNewGroceryItem ( GroceryItem newItem ) 
+		{
+		this.bag.add( newItem ) ;
+		this.numberOfItems += 1 ;
+		this.totalBagWeight += newItem.itemWeight.weightValue ;
+	
+		}	// end addNewGroceryItem()
+	
+	
+	public Object[] returnBag() 
+		{
+		return this.bag.toArray();
+		
+		}	// end returnBag()
+			
+			
 	public int returnTotalBagWeight() 
 		{
 		return this.totalBagWeight ;
@@ -40,7 +62,7 @@ public class GroceryBag
 	
 	public boolean checkTotalBagWeight( int addedWeight ) 
 		{
-		return (this.totalBagWeight + addedWeight <= 10) ;
+		return (this.totalBagWeight + addedWeight <= WEIGHTLIMIT ) ;
 		
 		}	// end checkTotalBagWeight()
 	
@@ -52,17 +74,30 @@ public class GroceryBag
 		}	// end increaseTotalBagWeight()
 	
 	
-	public void addNewGroceryItem ( GroceryItem newItem ) 
+	public int returnNumberOfItems() 
 		{
-		this.bag.add( newItem ) ;
+		return this.numberOfItems ;
 		
-		}	// end addNewGroceryItem()
+		}	// end returnNumberOfItems()
 	
 	
-	public  BagInterface< GroceryItem > returnBag () 
+	public boolean checkNumberOfItems() 
 		{
-		return this.bag ;
-		}
+		if (this.numberOfItems == ITEMLIMIT ) 
+			{
+			return false ;
+			}
+		
+		return true ;
+	
+		}	// end checkNumberOfItems()
+	
+	
+	public void increaseNumberOfItems() 
+		{
+		this.numberOfItems++ ;
+
+		}	// end increaseNumberOfItems()
 	
 	
 	}	// end class GroceryBag
