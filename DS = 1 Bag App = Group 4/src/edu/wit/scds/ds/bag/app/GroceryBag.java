@@ -74,6 +74,19 @@ public class GroceryBag
 		return this.bag.toArray() ;
 		
 		}	// end returnBag()
+	
+	
+	/**
+	 * Returns the name of an item within a bag at a specific index
+	 * 
+	 * @return the String name of the item
+	 */
+	public String returnCurrentItemName( int bagIndex )
+		{
+		GroceryItem currentItem = ( GroceryItem ) ( this.returnBag()[ bagIndex ] ) ;
+		return currentItem.itemName ;
+		
+		}
 			
 	
 	/**

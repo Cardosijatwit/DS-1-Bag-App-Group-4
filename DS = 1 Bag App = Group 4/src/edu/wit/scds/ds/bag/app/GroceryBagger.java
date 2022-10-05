@@ -33,10 +33,8 @@ public class GroceryBagger
 		 * Checks in given grocery items and places said items into existing bags based off of their
 		 * traits, or creates new bags to place the items into if no matching bag for an item is found
 		 */
-		try 
-        	{
-        	Scanner groceryListReader = new Scanner( new File( "./data/groceries.txt" ) ) ; 
-        	
+		try ( Scanner groceryListReader = new Scanner( new File( "./data/groceries.txt" ) ) )
+        	{ 
             while ( groceryListReader.hasNextLine() ) 
             	{
             	// interprets line from .txt file and converts it into a single "grocery item"
@@ -44,6 +42,7 @@ public class GroceryBagger
                 
                 boolean compatible = false ;
                 int counter = 0 ;
+                
                 // checks existing bags for compatibility with current grocery item
                 while ( !compatible && counter < bags.size() )	
                 	{
@@ -61,7 +60,6 @@ public class GroceryBagger
                 	
                 	}	// end inner while{}
                 
-                
                 // creates new bag if no compatible bags for current grocery item
                 if ( !compatible ) 
                 	{
@@ -76,22 +74,24 @@ public class GroceryBagger
              * Prints contents and traits of each bag
              */
             System.out.printf( "There are %d bags in total%n%n", bags.size() ) ;
-            
+           
+            // iterates through each bag in the bags ArrayList
             for ( int i = 0 ; i < bags.size() ; i++ ) 
             	{
             	System.out.printf( "Bag #%d%n", i + 1 ) ;
             	System.out.printf( "Traits: %s, %s, %s%n", bags.get( i ).bagContentWeight.displayName, bags.get( i ).bagContentFirmness.displayName, bags.get( i ).bagContentFlexibility.displayName ) ;
             	System.out.printf( "Contents: " ) ;
             	 
-            	for ( int j = 0 ; j < bags.get( i ).returnBag().length ; j++ ) 
+            	// iterates through the contents of each individual bag
+            	for ( int j = 0 ; j < bags.get( i ).returnNumberOfItems() ; j++ ) 
             	 	{
-            		if ( j != bags.get( i ).returnBag().length - 1 ) 
+            		if ( j != bags.get( i ).returnNumberOfItems() - 1 ) 
             			{
-            			System.out.printf( "%s, ", ( ( GroceryItem )( bags.get( i ).returnBag() )[ j ] ).itemName ) ;
+            			System.out.printf( "%s, ", bags.get( i ).returnCurrentItemName( j ) ) ;
             			}
             		else 
-            			{
-            			System.out.printf( "%s%n", ( ( GroceryItem )( bags.get( i ).returnBag() )[ j ] ).itemName ) ;
+            			{           			
+            			System.out.printf( "%s%n", bags.get( i ).returnCurrentItemName( j ) ) ;
             			}
             		
             	 	}	// end inner for()
