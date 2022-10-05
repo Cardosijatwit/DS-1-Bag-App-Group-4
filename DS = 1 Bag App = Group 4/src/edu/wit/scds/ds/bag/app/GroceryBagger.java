@@ -29,10 +29,6 @@ public class GroceryBagger
 		ArrayList< GroceryBag > bags = new ArrayList<>() ;
 		
 		
-		/*
-		 * Checks in given grocery items and places said items into existing bags based off of their
-		 * traits, or creates new bags to place the items into if no matching bag for an item is found
-		 */
 		try ( Scanner groceryListReader = new Scanner( new File( "./data/groceries.txt" ) ) )
         	{ 
             while ( groceryListReader.hasNextLine() ) 
