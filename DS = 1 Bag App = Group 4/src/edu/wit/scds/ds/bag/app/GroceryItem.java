@@ -1,11 +1,11 @@
 
-package edu.wit.scds.ds.bag.app;
+package edu.wit.scds.ds.bag.app ;
 
 /**
  * A class that allows for the creation of a "grocery item" object that holds all of the necessary
  * information about an individual grocery item
  * 
- * @author Darrian Yang
+ * @author Jonny Cardosi
  *
  */
 public class GroceryItem
@@ -24,7 +24,7 @@ public class GroceryItem
 	 * Creates a new grocery item with the attributes provided in the String passed in
 	 * 
 	 * @param groceryListIndividualLine
-	 * 		the String line read and passed in from the groceries.txt file 
+	 * 		the String line passed in 
 	 */
 	public GroceryItem( String groceryListIndividualLine )
 		{

@@ -1,5 +1,5 @@
 
-package edu.wit.scds.ds.bag.app;
+package edu.wit.scds.ds.bag.app ;
 
 /**
  * Enumeration of grocery item firmness for the GroceryBagger application.
@@ -9,26 +9,28 @@ package edu.wit.scds.ds.bag.app;
  */
 public enum GroceryItemFirmness
     {
-    //Firmness        Display Name        Numeric Value
-    
+	
+    // Firmness     Display Name    Numeric Value
     /**Soft item*/
-    SOFT( "Soft", 1 ),
+    	SOFT( 		   "Soft", 			  1 ),
     
     /**Firm item*/
-    FIRM( "Firm", 2 ),
+    	FIRM( 		   "Firm", 			  2 ),
     
     /**Hard item*/
-    HARD( "Hard", 3 ) ;
-
+    	HARD( 		   "Hard", 		  	  3 ) ;
+	
+	
     //Instance variables
-    
     /**name for the display*/
     public final String displayName ;
     
     /**integer equivalent of the firmness*/
     public final int firmnessValue ;
 
+    
     /**
+     * Creates a new firmness enum based off of the supplied input
      * 
      * @param itemFirmnessDisplayName becomes the name for the display
      * @param itemFirmnessValue becomes the integer equivalent of the firmness
@@ -38,11 +40,14 @@ public enum GroceryItemFirmness
         this.displayName = itemFirmnessDisplayName ;
         this.firmnessValue = itemFirmnessValue ;
         
-        }//end of the constructor
+        }	// end 2-arg (name and value) constructor
 
+    
     /**
-     * parses a text description of firmness
+     * Parses a text description of firmness
+     * 
      * @param firmnessDescription
+     * 
      * @return the corresponding enum constant or Firm if the text is unrecognizable
      */
     public static GroceryItemFirmness interpretDescription( final String firmnessDescription )
@@ -66,32 +71,35 @@ public enum GroceryItemFirmness
                 correspondingFirmness = FIRM ;
                 break ;
                 
-            }//end of the switch()
+            }	// end switch()
         
         return correspondingFirmness ;
         
-        }//end of the interpretDescription method
+        }	// end interpretDescription()
+    
     
     /**
-     * creates a string representation of displayName
+     * Creates a string representation of displayName
      */
     public String toString() 
         {
         return this.displayName ; 
         
-        }//end of the toString method
+        }	// end toString()
+    
     
     /**
-     * displays all constants of the enumeration
+     * Displays all constants of the enumeration
+     * 
      * @param args
      */
     public static void main( final String[] args )
         {
-        //displays the introductory message
+        // displays the introductory message
         System.out.printf( "Members of the %s enumeration%n%n",
                             GroceryItemFirmness.class.getSimpleName()) ;
         
-        //displays all column headers
+        // displays all column headers
         System.out.printf( "%-5s %-15s %-15s %-15s %-15s %-15s%n",
                            "#",
                            "Item Firmness",
@@ -100,7 +108,7 @@ public enum GroceryItemFirmness
                            "Firmness Value",
                            "Interpreted Firmness" ) ;
         
-        //displays each element of the enumeration
+        // displays each element of the enumeration
         for ( final GroceryItemFirmness anItemFirmness: GroceryItemFirmness.values() ) 
             {
             System.out.printf( "%-5s %-15s %-15s %-15s %-15s %-15s%n",
@@ -111,8 +119,10 @@ public enum GroceryItemFirmness
                                 anItemFirmness.firmnessValue,
                                 interpretDescription( anItemFirmness.toString() ) ) ;
             
-            }//end of the for loop
+            }	// end for{}
         
-        }//end of the main method
+        
+        }	// end main{}
     
-    }//end of the GroceryItemFirmness class
+    
+    }	// end class GroceryItemFirmness

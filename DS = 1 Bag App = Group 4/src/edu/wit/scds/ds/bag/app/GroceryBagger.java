@@ -30,7 +30,8 @@ public class GroceryBagger
 		
 		
 		/*
-		 * Main bag-creation and item-to-bag compatibility checking done within this try & catch block
+		 * Checks in given grocery items and places said items into existing bags based off of their
+		 * traits, or creates new bags to place the items into if no matching bag for an item is found
 		 */
 		try 
         	{

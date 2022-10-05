@@ -1,5 +1,5 @@
 
-package edu.wit.scds.ds.bag.app;
+package edu.wit.scds.ds.bag.app ;
 
 import edu.wit.scds.ds.bag.adt.ResizableArrayBag ;
 import edu.wit.scds.ds.bag.BagInterface ;
@@ -24,11 +24,12 @@ public class GroceryBag
 	 * Attributes of each bag
 	 */
 	private BagInterface< GroceryItem > bag = new ResizableArrayBag<>() ;  
-	private int totalBagWeight = 0;		// private variables can't be final due to possible future additions to any bag
-	private int numberOfItems = 0;   
+	private int totalBagWeight = 0 ;	// private variables can't be final here due to possible future additions to any bag
+	private int numberOfItems = 0 ;   
 	public final GroceryItemWeight bagContentWeight ;
 	public final GroceryItemFirmness bagContentFirmness ;
 	public final GroceryItemFlexibility bagContentFlexibility ;
+	
 	
 	/**
 	 * Creates a new grocery bag with the given grocery item and corresponding bag attributes
@@ -66,8 +67,7 @@ public class GroceryBag
 	/**
 	 * Returns the current grocery bag in a form that can be looked through index by index
 	 * 
-	 * @return
-	 * 		the current bag converted to an Object[]
+	 * @return the current bag converted to an Object[]
 	 */
 	public Object[] returnBag() 
 		{
@@ -79,8 +79,7 @@ public class GroceryBag
 	/**
 	 * Returns the total weight of the current bag
 	 * 
-	 * @return
-	 * 		total weight of bag
+	 * @return total weight of bag
 	 */
 	public int returnTotalBagWeight() 
 		{
@@ -95,8 +94,7 @@ public class GroceryBag
 	 * @param addedWeight
 	 * 		weight to be added
 	 * 
-	 * @return
-	 * 		true if add is possible, false if add is not possible
+	 * @return true if add is possible, false if add is not possible
 	 */
 	public boolean checkTotalBagWeight( int addedWeight ) 
 		{
@@ -106,9 +104,10 @@ public class GroceryBag
 	
 	
 	/**
-	 * 
+	 * Adds the weight of the current item to the total weight of the current bag
 	 * 
 	 * @param addedWeight
+	 * 		weight amount to be added
 	 */
 	public void increaseTotalBagWeight( int addedWeight ) 
 		{
@@ -117,6 +116,12 @@ public class GroceryBag
 		}	// end increaseTotalBagWeight()
 	
 	
+	/**
+	 * Retrieves the number of items in the current bag
+	 * 
+	 * @return the numberOfItems in the current bag
+	 * 		
+	 */
 	public int returnNumberOfItems() 
 		{
 		return this.numberOfItems ;
@@ -124,6 +129,11 @@ public class GroceryBag
 		}	// end returnNumberOfItems()
 	
 	
+	/**
+	 * Checks if the current bag has reached the limit of items it can hold
+	 * 
+	 * @return true if the number of items in the bag is less than the limit, false if equal to the limit
+	 */
 	public boolean checkNumberOfItems() 
 		{
 		if (this.numberOfItems == ITEMLIMIT ) 
@@ -136,6 +146,9 @@ public class GroceryBag
 		}	// end checkNumberOfItems()
 	
 	
+	/**
+	 * Adds 1 to the number-of-items variable in the current bag
+	 */
 	public void increaseNumberOfItems() 
 		{
 		this.numberOfItems++ ;
